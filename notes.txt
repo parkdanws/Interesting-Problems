@@ -1,2 +1,7 @@
 Notable:
 First missing positive integer problem is interesting and not obvious.
+pairsconstructing is really FUN. very nonintuitive
+
+
+Future:
+look up and https://en.wikipedia.org/wiki/Closure_(computer_programming)
