@@ -2,25 +2,55 @@
 Implement here!
 """
 def main():
-    x = [ 3,4,-1,1,8,2]
-    firstpos(x)
+    g = [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+         [0,0,0,0,0,0,0,1,1,1,0,0,0],
+         [0,1,1,0,1,0,0,0,0,0,0,0,0],
+         [0,1,0,0,1,1,0,0,1,0,1,0,0],
+         [0,1,0,0,1,1,0,0,1,1,1,0,0],
+         [0,0,0,0,0,0,0,0,0,0,1,0,0],
+         [0,0,0,0,0,0,0,1,1,1,0,0,0],
+         [0,0,0,0,0,0,0,1,1,0,0,0,0]]
 
-def firstpos(data):
-    if not data:
-        return 1
+    g2 = [[0,0,0,0,0]]
+    g3 = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+    g4 = [[1]]
+    print (maxIsland(g4))
 
-    print ("Initial state:\n{}".format(" ".join(map(str,data))))
+def maxIsland(data):
+    """
+    practice of maxisland
+    g = [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+         [0,0,0,0,0,0,0,1,1,1,0,0,0],
+         [0,1,1,0,1,0,0,0,0,0,0,0,0],
+         [0,1,0,0,1,1,0,0,1,0,1,0,0],
+         [0,1,0,0,1,1,0,0,1,1,1,0,0],
+         [0,0,0,0,0,0,0,0,0,0,1,0,0],
+         [0,0,0,0,0,0,0,1,1,1,0,0,0],
+         [0,0,0,0,0,0,0,1,1,0,0,0,0]]
 
-    for i in range(len(data)):
-        print ("FOR LOOP".center(30,"-"))
-        print ("{} [{}] {}".format(data[0:i],data[i],data[i+1:]))
-        while 0 < data[i] <= len(data) and data[i] != (i + 1):
-            val = data[i]
-            data[i], data[val-1] = data[val-1],data[i]
-            print ("{} [{}] {}".format(data[0:i],data[i],data[i+1:]))
-            
-            if data[i] == data[val-1]:
-                break
+    g2 = [[0,0,0,0,0]]
+    g3 = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+    g4 = [[1]]
+
+    6,0,4,1
+    """
+    vis = set()
+    def recurse(i,j):
+        #all the conditions that have to be met 'not' 
+        if not(0 <= i < len(data) and
+               0 <= j < len(data[0]) and
+               data[i][j] == 1 and
+               (i,j) not in vis):
+            return 0
+
+        vis.add((i,j))
+        return 1 + recurse(i-1,j) + recurse(i+1,j) \
+            +recurse(i,j-1) + recurse(i,j+1)
+
+    return max(recurse(i,j)
+               for i in range(len(data))
+               for j in range(len(data[0])))
+               
     
     
 if __name__ == "__main__":

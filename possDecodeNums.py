@@ -18,6 +18,10 @@ given some integer, at each additional number
 considered, it can be seen as a 'letter' on its own,
 or a pair with the previous.
 This question is about as straightforward a dp question can be. 
+
+The solution is recursive, which makes a lot of sense. it
+is better at detecting invalid solution
+
 """
 def main():
     d = 111
@@ -25,7 +29,31 @@ def main():
     d3 = 1111
     print(possDecodeNums(d3))
 
+def pdnsoln(message):
+    """
+    recursive given solution. basically similar as my solution except
+    this doesn't explicitly keep a table, but rather the values
+    are 'bubbled' up from end to beginning as the recursive calls
+    return.
+    """
+    message = str(message)
+    if message.startswith('0'):
+        return 0
+    elif message == "":
+        return 1
+
+    val = pdnsoln(s[1:])
+
+    if int(message[:2]) <= 26:
+        val += pdnsoln(s[2:])
+
+    return val
+    
+
 def possDecodeNums(message):
+    """
+    my solution. is iterative
+    """
     #assuming that message is an integer
     message = str(message)
     tab = set()

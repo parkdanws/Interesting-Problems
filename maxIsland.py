@@ -40,6 +40,15 @@ def main():
 
 
 class Solution(object):
+    """
+    Analysis with leetcode solution in mind:
+    my solution is 'fundamentally' the same as the leetcode
+    but the leetcode version is leaner and more efficient.
+    lots of the 'condition' checking happens within
+    the recursive function, whereas I perform some unnecessary
+    work outside. the entire getneighbors is an example of
+    unnecessary work
+    """
     def maxAreaOfIsland(self,grid):
         vis = set() 
         maxSize = 0
