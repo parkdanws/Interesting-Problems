@@ -47,14 +47,36 @@ chunk is worth while. This is true if the next positive chunk
 after the negative chunk is larger in magnitude than the negative 
 chunk.
 """
-import logging
 
 def main():
     d =  [34, -50, 42, 14, -5, 86]
     d2 =  [-5, -1, -8, -9]
-    print(maxSASum(d))
+    print(solution(d))
+
+def solution(data):
+    """
+    Solution: Even simpler than my solution. my fundamental intuition
+    was correct; i have to be braver
+
+    This algo is aka Kadane's algorithm. O(N) time, O(1) Space
+
+    I hate it when the solution is ridiculously simple
+    """
+    max_atm = 0 #max at each step
+    max_global = 0 #global max
+
+    for d in data:
+        max_atm = max(d,max_atm + d)
+        max_global = max(max_global,max_atm)
+
+    return max_global
+
 
 def maxSASum(data):
+    """
+    My solution.
+    runs O(N) (2*N max), O(N) space 
+    """
     currind = 0
     currentchunk = 0    
     maxv = []

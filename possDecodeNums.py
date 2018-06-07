@@ -1,0 +1,49 @@
+"""
+June 6 2018
+
+problem and some of solution based off Daily Coding Problem #7.
+Commentary is mine, and notable changes made to code
+
+given: mapping from each letter of alphabet to number (a = 1, b = 2... z = 26)
+and a number, count the number of ways it can be decoded.
+Assume: message is decodable
+
+eg. 111: aaa, ak, ka -> 3
+001: invalid input
+"""
+
+"""
+seems like another dynamic programming problem.
+given some integer, at each additional number
+considered, it can be seen as a 'letter' on its own,
+or a pair with the previous.
+This question is about as straightforward a dp question can be. 
+"""
+def main():
+    d = 111
+    d2 = 1
+    d3 = 1111
+    print(possDecodeNums(d3))
+
+def possDecodeNums(message):
+    #assuming that message is an integer
+    message = str(message)
+    tab = set()
+    for i in range(1,27):
+        tab.add(str(i))
+
+    # initializing dp is interesting
+    # we are almost acknowledging that a double may exist
+    dp = [1,1]
+
+    for i in range(1,len(message)):
+        val = dp[i]
+        
+        if message[i-1:i+1] in tab:
+            val += dp[i-1] 
+        dp.append(val)
+    
+    return(dp[-1])
+
+if __name__ == "__main__":
+    main()
