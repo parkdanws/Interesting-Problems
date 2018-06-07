@@ -27,7 +27,7 @@ def main():
     d = 111
     d2 = 1
     d3 = 1111
-    print(possDecodeNums(d3))
+    print(pdnsoln(d3))
 
 def pdnsoln(message):
     """
@@ -37,18 +37,21 @@ def pdnsoln(message):
     return.
     """
     message = str(message)
+    #invalid soln
     if message.startswith('0'):
         return 0
-    elif message == "":
+    #if we overflow or are left with single char. automatically count
+    elif len(message) <= 1: 
         return 1
 
-    val = pdnsoln(s[1:])
+    #because every single digit has equivalent letter
+    val = pdnsoln(message[1:]) 
 
+    #not every double digit has equivalent letter
     if int(message[:2]) <= 26:
-        val += pdnsoln(s[2:])
+        val += pdnsoln(message[2:])
 
     return val
-    
 
 def possDecodeNums(message):
     """
