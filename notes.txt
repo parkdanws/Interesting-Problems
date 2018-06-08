@@ -1,17 +1,18 @@
 Notable:
 First missing positive integer problem is interesting and not obvious.
-pairsconstructing is really FUN. very nonintuitive
 possdecodenums: try to solve
+univTree: not too hard; worth doing again to work on flow control
 
 Reviewed once:
 maxIsland: the leetcode solution is better than mine. try to solve
+pairsconstructing is really FUN. very nonintuitive
 
 Future:
 look up and https://en.wikipedia.org/wiki/Closure_(computer_programming)
 
 DCP:
-2-7
+2-8
 
 Ugh I don't want to deal with 6
 
-49
+49-50

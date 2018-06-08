@@ -37,8 +37,8 @@ def main():
 def soln(root):
     """
     Fundamentals identical to mine!
-    instead of returning 3 values like me, the solution just goes in
-    to access
+    instead of returning 3 values like me, the solution just accesses
+    the children nodes
 
     flow control logic is a bit different, but achieves the same thing
     """

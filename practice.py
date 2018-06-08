@@ -2,19 +2,36 @@
 Implement here!
 """
 def main():
-    g = [[0,0,1,0,0,0,0,1,0,0,0,0,0],
-         [0,0,0,0,0,0,0,1,1,1,0,0,0],
-         [0,1,1,0,1,0,0,0,0,0,0,0,0],
-         [0,1,0,0,1,1,0,0,1,0,1,0,0],
-         [0,1,0,0,1,1,0,0,1,1,1,0,0],
-         [0,0,0,0,0,0,0,0,0,0,1,0,0],
-         [0,0,0,0,0,0,0,1,1,1,0,0,0],
-         [0,0,0,0,0,0,0,1,1,0,0,0,0]]
+    data = [3,4,-1,1] #2
+    data2 = [1,2,3] # 4
+    data3 = [1]
+    data1 = [0,-1,5,6]
+    print(firstMissingPosInt(data1))
+    
 
-    g2 = [[0,0,0,0,0]]
-    g3 = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
-    g4 = [[1]]
-    print (maxIsland(g4))
+def firstMissingPosInt(data):
+    """
+    data = [3,4,-1,1] #2
+    data = [1,2,3] # 4
+    """
+    if not data:
+        return 1
+
+    for i in range(len(data)):
+        while(data[i] != i + 1 and 0 < data[i] <= len(data)):
+            val = data[i]
+            data[i], data[val - 1] = data[val -1], data[i]
+
+            if data[i] == data[val-1]:
+                break
+
+    for i,j in enumerate(data,1):
+        if i != j:
+            return i
+
+    return len(data) + 1
+            
+            
 
 def maxIsland(data):
     """
