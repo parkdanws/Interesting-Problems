@@ -13,7 +13,17 @@ Given root to binary tree
 """
 
 """
-Here is attempt 2. 
+univTree return a tupule with 3 things
+(# number of valid subtrees under, the current node's value, whether
+the nodes under the current one are all identical)
+
+With this information, the univtree determines whether left/right
+branches are same and valid; if so add 1 to return value.
+
+if current val is same as left and right node values that are still
+valid, then set current status to true.
+
+return num left subtrees, num right subtrees, value and status
 """
 def main():
     root1 = input1()
@@ -21,7 +31,12 @@ def main():
     root3 = input3()
     root4 = input4()
     root5 = input5()
-    print(univTree(root4)[0])
+    print(univTree(root5)[0])
+
+
+def soln(root):
+    pass
+
 
 def univTree(root):
     if root == None:
@@ -40,9 +55,6 @@ def univTree(root):
     if ls == rs == True and lv == rv:
         c += 1
         if lv == rv == root.value:
-            roots = True
-
-        if lv == None or rv == None:
             roots = True
 
     return (c + ln + rn, root.value, roots)
