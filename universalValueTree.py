@@ -32,13 +32,38 @@ def main():
     root4 = input4()
     root5 = input5()
     print(univTree(root5)[0])
-
+    print(soln(root5)[0])
 
 def soln(root):
-    pass
+    """
+    Fundamentals identical to mine!
+    instead of returning 3 values like me, the solution just goes in
+    to access
 
+    flow control logic is a bit different, but achieves the same thing
+    """
+    if root == None:
+        return (0, True)
+
+    (ln,ls) = soln(root.left)
+    (rn,rs) = soln(root.right)
+    c = ln + rn
+    
+    if ls and rs:
+        if root.left is not None and root.value != root.left.value:
+            return (rn, False)
+        if root.right is not None and root.value != root.right.value:
+            return (rn, False)
+        return (c + 1, True)
+
+    return (c,False)
+    
 
 def univTree(root):
+    """
+    my solution. not bad at all.
+    flow control could be improved a bit
+    """
     if root == None:
         return(0,None,True)
 
