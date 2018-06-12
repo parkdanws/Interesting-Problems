@@ -2,6 +2,8 @@ Notable:
 First missing positive integer problem is interesting and not obvious.
 possdecodenums: try to solve
 univTree: not too hard; worth doing again to work on flow control
+lru: it became a systems problem, not an algorithm. worth doing again just to
+be better at writing systems, or thinking of algorithms to avoid complex systems
 
 Reviewed once:
 maxIsland: the leetcode solution is better than mine. try to solve
@@ -9,10 +11,11 @@ pairsconstructing is really FUN. very nonintuitive
 
 Future:
 look up and https://en.wikipedia.org/wiki/Closure_(computer_programming)
+fisher-yates shuffle: shuffle problem: why??
 
 DCP:
 2-8
 
 Ugh I don't want to deal with 6
 
-49-50
+49-52
